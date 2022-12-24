@@ -1,4 +1,4 @@
 ### Origan video + Video reverse combine to new one video
 
-https://user-images.githubusercontent.com/106951689/209421848-727fbabd-349e-473a-b2c3-322dce5a888e.mp4
 
+![score_new (1)](https://user-images.githubusercontent.com/106951689/209422709-543f3dcc-e15a-407a-8744-ac85333dbc9c.gif)
