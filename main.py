@@ -10,7 +10,7 @@ frame_index_start = capture.get(cv2.CAP_PROP_POS_FRAMES)
 
 # 演算法壓縮
 fourcc = cv2.VideoWriter_fourcc(*'MP4V')
-output = cv2.VideoWriter('score_resverse.mp4', fourcc, int(fps), (480, 360), True)
+output = cv2.VideoWriter('score_resverse.mp4', fourcc, int(fps), (360, 240), True)
 
 while capture.isOpened() and frame_index_start<=frame_index_end:
 
@@ -19,11 +19,11 @@ while capture.isOpened() and frame_index_start<=frame_index_end:
     ret, frame = capture.read()
 
     if ret is True:
-        frame = cv2.resize(frame, (480, 360))
+        frame = cv2.resize(frame, (360, 240))
         # Decrement the index to read next frame:
         frame_index_start +=3
-        text = f"frameStartIndex:{str(frame_index_start)}"
-        cv2.putText(frame,text,(50,50),cv2.FONT_HERSHEY_SIMPLEX, 1,(0,255,0),2)
+        text = f"StartIndex:{str(frame_index_start)}"
+        cv2.putText(frame,text,(20,30),cv2.FONT_HERSHEY_SIMPLEX, 1,(0,255,0),2)
 
         cv2.imshow('Original frame', frame)
         output.write(frame)
@@ -43,11 +43,11 @@ while capture.isOpened() and frame_index_end >= 0:
 
     if ret is True:
 
-        frame = cv2.resize(frame, (480, 360))
+        frame = cv2.resize(frame, (360, 240))
         # Decrement the index to read next frame:
         frame_index_end -= 3
-        text = f"frameReverseIndex:{str(frame_index_end)}"
-        cv2.putText(frame,text,(50,50),cv2.FONT_HERSHEY_SIMPLEX, 1,(0,0,255),2)
+        text = f"ReverseIndex:{str(frame_index_end)}"
+        cv2.putText(frame,text,(20,30),cv2.FONT_HERSHEY_SIMPLEX, 1,(0,0,255),2)
 
         cv2.imshow('reverse frame', frame)
         output.write(frame)
