@@ -10,7 +10,7 @@ frame_index_start = capture.get(cv2.CAP_PROP_POS_FRAMES)
 
 # 演算法壓縮
 fourcc = cv2.VideoWriter_fourcc(*'MP4V')
-output = cv2.VideoWriter('score_resverse.mp4', fourcc, int(fps), (800, 600), True)
+output = cv2.VideoWriter('score_resverse.mp4', fourcc, int(fps), (480, 360), True)
 
 while capture.isOpened() and frame_index_start<=frame_index_end:
 
@@ -19,7 +19,7 @@ while capture.isOpened() and frame_index_start<=frame_index_end:
     ret, frame = capture.read()
 
     if ret is True:
-        frame = cv2.resize(frame, (800, 600))
+        frame = cv2.resize(frame, (480, 360))
         # Decrement the index to read next frame:
         frame_index_start +=3
         text = f"frameStartIndex:{str(frame_index_start)}"
@@ -43,7 +43,7 @@ while capture.isOpened() and frame_index_end >= 0:
 
     if ret is True:
 
-        frame = cv2.resize(frame, (800, 600))
+        frame = cv2.resize(frame, (480, 360))
         # Decrement the index to read next frame:
         frame_index_end -= 3
         text = f"frameReverseIndex:{str(frame_index_end)}"
